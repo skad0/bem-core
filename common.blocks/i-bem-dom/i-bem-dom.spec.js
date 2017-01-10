@@ -339,6 +339,10 @@ describe('i-bem-dom', function() {
         });
 
         describe('findChildBlocks', function() {
+            it('should throw error if Block given as string', function() {
+                rootBlock.findChildBlocks('string').should.throw(Error, 'Block can\'t be a String');
+            });
+
             it('should return BEM-collection', function() {
                 rootBlock.findChildBlocks(B1Block).should.be.instanceOf(BemDomCollection);
             });
@@ -370,6 +374,10 @@ describe('i-bem-dom', function() {
         });
 
         describe('findChildBlock', function() {
+            it('should throw error if Block given as string', function() {
+                rootBlock.findChildBlock('string').should.throw(Error, 'Block can\'t be a String');
+            });
+
             it('should return instance of Block found by class', function() {
                 rootBlock.findChildBlock(B1Block).should.be.instanceOf(B1Block);
             });

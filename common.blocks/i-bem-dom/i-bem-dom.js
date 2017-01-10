@@ -442,7 +442,10 @@ var BemDomEntity = inherit(/** @lends BemDomEntity.prototype */{
      * @returns {Block}
      */
     findChildBlock : function(Block) {
-        // TODO: throw if Block passed as a string
+        if(typeof Block === 'string') {
+            throw new Error('Block can\'t be a String');
+        }
+
         return this._findEntities('find', Block, true);
     },
 
@@ -452,6 +455,10 @@ var BemDomEntity = inherit(/** @lends BemDomEntity.prototype */{
      * @returns {BemDomCollection}
      */
     findChildBlocks : function(Block) {
+        if(typeof Block === 'string') {
+            throw new Error('Block can\'t be a String');
+        }
+
         return this._findEntities('find', Block);
     },
 
